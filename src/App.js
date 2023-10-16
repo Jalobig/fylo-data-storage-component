@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import Footer from "./Layout/Footer/Footer";
+import Main from "./Layout/Main/Main";
+import BGDesktop from "./images/bg-desktop.png";
+import BGMobile from "./images/bg-mobile.png";
+import useMediaQuery from "./hooks/useMediaQuery";
 
 function App() {
+  const media = useMediaQuery("only screen and (max-width:700px)");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <img
+        src={media ? BGMobile : BGDesktop}
+        alt="background pattern"
+        className="bg"
+      />
+      <Main />
+      <Footer />
+    </>
   );
 }
 
